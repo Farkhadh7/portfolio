@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f1eb">
+  <meta name="description" content="Farhad Almabekov — IT student and aspiring developer in Atyrau, Kazakhstan. Web projects, IT tools, and cybersecurity learning experiences.">
+  <title>Farhad Almabekov — IT Portfolio</title>
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #f4f1eb;
+      --paper-deep: #e9e4da;
+      --ink: #181916;
+      --muted: #6b6b63;
+      --line: rgba(24,25,22,.17);
+      --accent: #f06443;
+      --accent-deep: #cf452b;
+      --olive: #d9dfc4;
+      --dark: #20231f;
+      --white: #fffdf8;
+      --sans: "Manrope", "DM Sans", Arial, sans-serif;
+      --body: "DM Sans", Arial, sans-serif;
+      --serif: "Playfair Display", Georgia, serif;
+      --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      --max: 1320px;
+      --gutter: clamp(20px, 4.8vw, 72px);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+    body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--body); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    ::selection { background: var(--accent); color: var(--white); }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; color: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button:focus-visible, a:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+    .wrap { width: min(var(--max), calc(100% - var(--gutter) * 2)); margin-inline: auto; }
+    .eyebrow, .mono { font-family: var(--mono); text-transform: uppercase; letter-spacing: .09em; font-size: 10px; line-height: 1.5; }
+    .muted { color: var(--muted); }
+    .topbar { position: relative; z-index: 30; border-bottom: 1px solid var(--line); background: rgba(244,241,235,.9); }
+    .nav { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 22px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; font: 800 13px var(--sans); letter-spacing: -.04em; white-space: nowrap; }
+    .brand-symbol { display: grid; place-items: center; width: 35px; height: 35px; border-radius: 50%; background: var(--ink); color: var(--paper); font: 700 12px var(--mono); }
+    .nav-right { display: flex; align-items: center; gap: clamp(16px, 2.8vw, 38px); }
+    .nav-links { display: flex; align-items: center; gap: clamp(16px, 2.8vw, 36px); }
+    .nav-links a { color: #5b5c55; font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; transition: color .2s; }
+    .nav-links a:hover { color: var(--accent-deep); }
+    .language { display: flex; gap: 2px; padding: 4px; border: 1px solid var(--line); border-radius: 100px; }
+    .language button { padding: 6px 8px; border: 0; border-radius: 100px; background: transparent; color: var(--muted); font: 10px var(--mono); cursor: pointer; }
+    .language button[aria-pressed="true"] { color: var(--white); background: var(--ink); }
+    .menu-toggle { display: none; width: 38px; height: 38px; border: 1px solid var(--line); border-radius: 50%; background: transparent; cursor: pointer; font-size: 19px; }
+
+    .hero { padding: clamp(54px, 7.5vw, 108px) 0 clamp(58px, 7vw, 92px); }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(320px, .75fr); gap: clamp(38px, 6vw, 88px); align-items: center; }
+    .hero-kicker { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; color: var(--muted); margin: 0 0 28px; }
+    .availability-dot { width: 7px; height: 7px; flex: 0 0 auto; border-radius: 50%; background: #54844a; box-shadow: 0 0 0 4px rgba(84,132,74,.13); }
+    h1 { max-width: 820px; margin: 0; font: 800 clamp(55px, 8vw, 118px)/.88 var(--sans); letter-spacing: -.09em; text-transform: uppercase; }
+    h1 .serif { color: var(--accent); font: 500 1.03em/.94 var(--serif); letter-spacing: -.075em; text-transform: none; }
+    h1 .last-line { white-space: nowrap; }
+    .hero-bottom { display: flex; align-items: flex-end; gap: 28px; flex-wrap: wrap; margin-top: 34px; }
+    .hero-intro { max-width: 400px; margin: 0; color: #54564f; font-size: clamp(14px, 1.25vw, 16px); line-height: 1.8; }
+    .button-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 25px; }
+    .btn { min-height: 47px; display: inline-flex; align-items: center; justify-content: center; gap: 18px; padding: 0 17px; border: 1px solid var(--ink); border-radius: 2px; font-size: 11px; font-weight: 800; text-transform: uppercase; transition: transform .2s, background .2s, color .2s; cursor: pointer; }
+    .btn:hover { transform: translateY(-3px); }
+    .btn-dark { background: var(--ink); color: var(--white); }
+    .btn-dark:hover { background: var(--accent); border-color: var(--accent); }
+    .btn-line { background: transparent; }
+    .btn-line:hover { background: var(--olive); }
+    .hero-visual { position: relative; width: 100%; max-width: 460px; justify-self: end; padding: 0 14px 15px 0; }
+    .portrait-frame { position: relative; height: clamp(390px, 48vw, 610px); overflow: hidden; border-radius: 4px; background: var(--paper-deep); z-index: 1; }
+    .portrait-frame::after { position: absolute; inset: 0; content: ""; pointer-events: none; background: linear-gradient(180deg, rgba(0,0,0,0) 56%, rgba(10,10,10,.42)); }
+    .portrait-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center 29%; filter: saturate(.83) contrast(1.015); }
+    .portrait-accent { position: absolute; right: 0; bottom: 0; width: 85%; height: 45%; background: var(--accent); border-radius: 4px; }
+    .portrait-tag { position: absolute; top: 18px; left: 18px; z-index: 2; padding: 10px 12px; background: var(--paper); color: var(--ink); font: 10px var(--mono); letter-spacing: .07em; text-transform: uppercase; }
+    .portrait-caption { position: absolute; z-index: 2; left: 22px; right: 22px; bottom: 20px; display: flex; align-items: end; justify-content: space-between; gap: 18px; color: white; }
+    .portrait-caption strong { display: block; margin-bottom: 4px; font: 700 clamp(17px, 2vw, 22px) var(--sans); letter-spacing: -.04em; }
+    .portrait-caption small { font-size: 11px; opacity: .86; }
+    .portrait-caption .year-stamp { font: 10px var(--mono); letter-spacing: .08em; }
+    .hero-index { display: flex; align-items: center; justify-content: space-between; gap: 24px; border-top: 1px solid var(--line); margin-top: clamp(48px, 6vw, 82px); padding-top: 15px; color: var(--muted); }
+    .hero-index strong { color: var(--ink); font-weight: 700; }
+    .hero-index .index-arrow { font-size: 18px; color: var(--accent); }
+
+    .marquee { overflow: hidden; background: var(--dark); color: var(--paper); border-block: 1px solid var(--dark); }
+    .marquee-track { display: flex; width: max-content; animation: marquee 33s linear infinite; padding: 15px 0 16px; }
+    .marquee-track span { padding-right: 28px; font: 10px var(--mono); letter-spacing: .12em; text-transform: uppercase; white-space: nowrap; }
+    .marquee-track b { margin-left: 28px; color: var(--accent); font-size: 15px; }
+    @keyframes marquee { to { transform: translateX(-50%); } }
+
+    section.content-section { padding: clamp(74px, 9vw, 126px) 0; border-bottom: 1px solid var(--line); }
+    .section-top { display: flex; align-items: end; justify-content: space-between; gap: 28px; margin-bottom: clamp(33px, 5vw, 58px); }
+    .section-number { display: block; margin-bottom: 17px; color: var(--accent-deep); }
+    h2 { margin: 0; font: 800 clamp(40px, 6.4vw, 82px)/.94 var(--sans); letter-spacing: -.08em; }
+    h2 .serif { color: var(--accent); font: 500 1.02em/.95 var(--serif); letter-spacing: -.065em; }
+    .section-note { max-width: 340px; margin: 0 0 4px; color: var(--muted); font-size: 13px; line-height: 1.8; }
+
+    .about-layout { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(38px, 9vw, 130px); align-items: start; }
+    .about-statement { max-width: 540px; margin: 0; font: 600 clamp(27px, 3.6vw, 45px)/1.15 var(--sans); letter-spacing: -.06em; }
+    .about-statement em { color: var(--accent); font: 500 1.05em var(--serif); }
+    .about-copy { max-width: 650px; color: var(--muted); font-size: 14px; line-height: 1.9; }
+    .about-copy p { margin: 0 0 17px; }
+    .info-grid { display: grid; grid-template-columns: 1fr 1fr; margin-top: 29px; border-top: 1px solid var(--line); }
+    .info-cell { min-height: 84px; padding: 17px 12px 15px 0; border-bottom: 1px solid var(--line); }
+    .info-cell:nth-child(odd) { margin-right: 22px; }
+    .info-cell span { display: block; margin-bottom: 8px; color: var(--muted); font: 9px var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+    .info-cell strong { font-size: 13px; font-weight: 700; }
+
+    .work-head-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 9px; text-align: right; color: var(--muted); font: 10px var(--mono); text-transform: uppercase; letter-spacing: .07em; }
+    .work-head-meta strong { color: var(--ink); font-size: 22px; letter-spacing: -.06em; }
+    .filters { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 25px; }
+    .filter-btn { padding: 10px 13px; border: 1px solid var(--line); background: transparent; color: var(--muted); cursor: pointer; font-size: 11px; transition: .2s; }
+    .filter-btn:hover, .filter-btn[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+    .project-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(14px, 2vw, 25px); }
+    .project-card { min-width: 0; display: flex; flex-direction: column; padding: 10px 10px 18px; border: 1px solid var(--line); background: rgba(255,253,248,.48); transition: transform .25s, border-color .25s, background .25s; }
+    .project-card:hover { transform: translateY(-5px); border-color: rgba(24,25,22,.5); background: var(--white); }
+    .project-card[hidden] { display: none; }
+    .project-cover { position: relative; min-height: 205px; overflow: hidden; display: flex; align-items: center; justify-content: center; padding: 23px; background: #d9dfc4; color: var(--ink); isolation: isolate; }
+    .project-cover::before { position: absolute; z-index: -1; inset: 0; content: ""; opacity: .28; background-image: linear-gradient(rgba(255,255,255,.7) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.7) 1px, transparent 1px); background-size: 27px 27px; }
+    .project-cover::after { position: absolute; z-index: -1; right: -52px; bottom: -94px; width: 210px; height: 210px; content: ""; border: 1px solid currentColor; border-radius: 50%; box-shadow: 0 0 0 18px rgba(255,255,255,.07), 0 0 0 38px rgba(255,255,255,.06); }
+    .cover-kicker { position: absolute; top: 13px; left: 14px; right: 14px; display: flex; justify-content: space-between; gap: 12px; font: 9px var(--mono); letter-spacing: .07em; text-transform: uppercase; opacity: .8; }
+    .cover-word { width: 100%; font: 800 clamp(27px, 3vw, 43px)/.92 var(--sans); letter-spacing: -.09em; text-transform: uppercase; overflow-wrap: anywhere; }
+    .cover-word em { font: 500 1.05em var(--serif); text-transform: none; }
+    .cover-icon { position: absolute; right: 13px; bottom: 12px; display: grid; place-items: center; width: 33px; height: 33px; border: 1px solid currentColor; border-radius: 50%; font-size: 17px; }
+    .cover-cyber { background: #252d2b; color: #e4ebd3; }
+    .cover-cyber .cover-word em { color: #f06443; }
+    .cover-phishing { background: #e7a08a; color: #241d1a; }
+    .cover-phishing .cover-word { font-size: clamp(26px, 2.7vw, 38px); }
+    .cover-gallery { background: #eee1d3; color: #231d19; }
+    .cover-gallery .cover-word { font-family: var(--serif); font-weight: 500; letter-spacing: -.08em; text-transform: none; }
+    .cover-las { background: #b6c1aa; color: #20231f; }
+    .cover-support { background: #e3e3d7; color: #20231f; }
+    .cover-ad { background: #ddd7ce; color: #2b332f; }
+    .cover-logs { background: #343b36; color: #e8edda; }
+    .cover-helpdesk { background: #f06443; color: #221b18; }
+    .cover-network { background: #d5dacc; color: #242822; }
+    .cover-siem { background: #252d2b; color: #e8edda; }
+    .cover-assets { background: #d8d0c2; color: #27231e; }
+    .cover-backup { background: #d9dfc4; color: #20231f; }
+    .cover-monitor { background: #c6cec2; color: #20231f; }
+    .cover-window { position: absolute; right: 22px; bottom: 29px; width: 96px; height: 70px; border: 1px solid currentColor; opacity: .65; transform: rotate(-7deg); }
+    .cover-window::before { content: ""; position: absolute; inset: 12px 9px; border-top: 1px solid currentColor; border-bottom: 1px solid currentColor; }
+    .cover-window::after { content: ""; position: absolute; width: 28px; height: 28px; border: 1px solid currentColor; border-radius: 50%; right: 12px; top: 19px; }
+    .project-meta { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin: 17px 0 13px; color: var(--muted); font: 9px var(--mono); letter-spacing: .06em; text-transform: uppercase; }
+    .project-state { display: inline-flex; align-items: center; gap: 6px; }
+    .project-state::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: #6b995a; }
+    .project-state.lab::before { background: var(--accent); }
+    .project-title { margin: 0 0 9px; font: 800 clamp(19px, 2.15vw, 26px)/1.08 var(--sans); letter-spacing: -.06em; }
+    .project-desc { flex: 1; min-height: 72px; margin: 0; color: var(--muted); font-size: 12px; line-height: 1.75; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 5px; margin: 15px 0 18px; }
+    .project-tag { padding: 5px 7px; border: 1px solid var(--line); color: #62635b; font: 8px var(--mono); letter-spacing: .04em; text-transform: uppercase; }
+    .project-action { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; padding-top: 12px; border-top: 1px solid var(--line); color: var(--ink); font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .03em; }
+    .project-action .arrow { color: var(--accent); font-size: 17px; transition: transform .2s; }
+    a.project-action:hover .arrow { transform: translate(3px,-3px); }
+    .project-action.unavailable { color: var(--muted); font-weight: 600; }
+
+    .skills-layout { display: grid; grid-template-columns: minmax(0, .75fr) minmax(0, 1.25fr); gap: clamp(35px, 8vw, 110px); }
+    .skills-aside { max-width: 360px; }
+    .skills-aside p { color: var(--muted); font-size: 14px; line-height: 1.85; }
+    .skill-groups { border-top: 1px solid var(--ink); }
+    .skill-group { display: grid; grid-template-columns: 150px 1fr; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+    .skill-group h3 { margin: 3px 0 0; font: 10px var(--mono); letter-spacing: .07em; text-transform: uppercase; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+    .skill-tag { padding: 9px 10px; border: 1px solid var(--line); background: rgba(255,253,248,.5); font-size: 11px; }
+    .skill-tag.learning { border-style: dashed; color: var(--muted); }
+    .skills-footnote { margin-top: 19px; color: var(--muted); font-size: 11px; line-height: 1.7; }
+
+    .journey { border-top: 1px solid var(--ink); }
+    .journey-item { display: grid; grid-template-columns: 145px minmax(0, 1fr) 30px; gap: 25px; align-items: start; padding: 25px 0; border-bottom: 1px solid var(--line); }
+    .journey-date { padding-top: 5px; color: var(--muted); font: 9px var(--mono); letter-spacing: .05em; }
+    .journey-item h3 { margin: 0 0 8px; font: 700 20px var(--sans); letter-spacing: -.04em; }
+    .journey-item p { max-width: 710px; margin: 0; color: var(--muted); font-size: 13px; line-height: 1.75; }
+    .journey-mark { display: grid; place-items: center; width: 29px; height: 29px; border: 1px solid var(--line); border-radius: 50%; color: var(--accent); font-size: 14px; }
+
+    .statement-band { padding: clamp(70px, 10vw, 135px) 0; background: var(--olive); }
+    .statement-inner { display: grid; grid-template-columns: 120px 1fr; gap: clamp(25px, 6vw, 80px); align-items: start; }
+    .statement-mark { color: var(--accent); font: 500 clamp(60px, 9vw, 120px)/.7 var(--serif); }
+    .statement-text { max-width: 1050px; margin: 0; font: 700 clamp(30px, 5vw, 65px)/1.08 var(--sans); letter-spacing: -.075em; }
+    .statement-text em { color: var(--accent-deep); font: 500 1.03em var(--serif); }
+    .statement-byline { margin: 26px 0 0; color: var(--muted); font: 9px var(--mono); letter-spacing: .1em; text-transform: uppercase; }
+
+    .contact-section { padding: clamp(78px, 10vw, 136px) 0 34px; background: var(--dark); color: var(--paper); }
+    .contact-section .section-number { color: #ffa184; }
+    .contact-section h2 { max-width: 920px; font-size: clamp(52px, 9vw, 116px); }
+    .contact-section h2 .serif { color: #ffa184; }
+    .contact-note { max-width: 365px; margin: 24px 0 0; color: rgba(244,241,235,.68); font-size: 14px; line-height: 1.8; }
+    .contact-line { display: flex; justify-content: space-between; align-items: end; gap: 30px; margin-top: clamp(42px, 7vw, 84px); padding-top: 26px; border-top: 1px solid rgba(244,241,235,.25); }
+    .contact-line-label { margin-bottom: 12px; color: rgba(244,241,235,.55); font: 9px var(--mono); letter-spacing: .09em; text-transform: uppercase; }
+    .github-link { display: inline-flex; align-items: center; gap: 14px; border-bottom: 1px solid rgba(244,241,235,.7); padding-bottom: 8px; font-size: clamp(18px, 3vw, 29px); letter-spacing: -.05em; overflow-wrap: anywhere; }
+    .github-link:hover { color: #ffa184; }
+    .contact-actions { display: flex; flex-wrap: wrap; justify-content: end; gap: 8px; }
+    .contact-chip { display: inline-flex; align-items: center; gap: 12px; padding: 11px 13px; border: 1px solid rgba(244,241,235,.35); font: 9px var(--mono); letter-spacing: .05em; text-transform: uppercase; transition: background .2s, color .2s; }
+    .contact-chip:hover { color: var(--dark); background: var(--paper); }
+    .footer { display: flex; justify-content: space-between; gap: 20px; padding-top: 30px; margin-top: 45px; border-top: 1px solid rgba(244,241,235,.15); color: rgba(244,241,235,.45); font: 9px var(--mono); letter-spacing: .07em; text-transform: uppercase; }
+    .footer a:hover { color: var(--paper); }
+    .toast { position: fixed; z-index: 50; bottom: 22px; left: 50%; transform: translate(-50%, 18px); opacity: 0; pointer-events: none; padding: 12px 17px; background: var(--paper); color: var(--ink); border: 1px solid var(--line); box-shadow: 0 8px 30px rgba(0,0,0,.14); font-size: 12px; transition: .25s; }
+    .toast.show { opacity: 1; transform: translate(-50%, 0); }
+    .reveal { opacity: 1; transform: none; transition: opacity .65s ease, transform .65s ease; }
+    .js .reveal { opacity: 0; transform: translateY(18px); }
+    .js .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 1000px) {
+      .hero-grid { grid-template-columns: minmax(0, 1.1fr) minmax(280px, .75fr); gap: 35px; }
+      h1 { font-size: clamp(56px, 8.2vw, 90px); }
+      .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .project-cover { min-height: 225px; }
+      .project-title { font-size: 24px; }
+    }
+    @media (max-width: 700px) {
+      html { scroll-padding-top: 70px; }
+      .nav { min-height: 68px; gap: 10px; }
+      .brand { font-size: 11px; gap: 9px; }
+      .brand-symbol { width: 31px; height: 31px; }
+      .nav-right { gap: 9px; }
+      .menu-toggle { display: block; }
+      .nav-links { display: none; position: absolute; top: 67px; left: 0; right: 0; padding: 20px var(--gutter) 25px; background: var(--paper); border-bottom: 1px solid var(--ink); align-items: flex-start; flex-direction: column; gap: 20px; }
+      .nav-links.open { display: flex; }
+      .nav-links a { font-size: 13px; }
+      .hero { padding-top: 48px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 39px; }
+      .hero-kicker { margin-bottom: 22px; font-size: 9px; }
+      h1 { font-size: clamp(57px, 15vw, 96px); }
+      h1 .last-line { white-space: normal; }
+      .hero-bottom { margin-top: 25px; }
+      .hero-visual { justify-self: center; max-width: 480px; width: 100%; }
+      .portrait-frame { height: min(118vw, 560px); }
+      .hero-index { margin-top: 48px; flex-wrap: wrap; font-size: 9px; }
+      section.content-section { padding: 75px 0; }
+      .section-top { align-items: flex-start; flex-direction: column; gap: 18px; margin-bottom: 32px; }
+      .section-note { max-width: 440px; }
+      .work-head-meta { align-items: flex-start; text-align: left; flex-direction: row; gap: 12px; }
+      .about-layout, .skills-layout { grid-template-columns: 1fr; gap: 28px; }
+      .about-statement { max-width: 550px; }
+      .project-grid { grid-template-columns: 1fr; gap: 14px; }
+      .project-cover { min-height: 225px; }
+      .cover-word { max-width: 360px; font-size: clamp(36px, 11vw, 54px); }
+      .cover-phishing .cover-word { font-size: clamp(35px, 10vw, 50px); }
+      .project-title { font-size: 25px; }
+      .project-desc { min-height: 0; }
+      .skill-group { grid-template-columns: 1fr; gap: 13px; }
+      .journey-item { grid-template-columns: 83px minmax(0, 1fr) 28px; gap: 12px; padding: 22px 0; }
+      .journey-item h3 { font-size: 17px; }
+      .journey-item p { font-size: 12px; }
+      .journey-date { font-size: 8px; }
+      .statement-inner { grid-template-columns: 40px 1fr; gap: 18px; }
+      .statement-mark { font-size: 58px; }
+      .statement-text { font-size: clamp(29px, 8vw, 48px); }
+      .contact-section h2 { font-size: clamp(51px, 13vw, 84px); }
+      .contact-line { align-items: flex-start; flex-direction: column; gap: 27px; }
+      .contact-actions { justify-content: flex-start; }
+      .footer { flex-direction: column; gap: 12px; }
+    }
+    @media (max-width: 380px) {
+      .brand span:last-child { max-width: 140px; white-space: normal; line-height: 1.15; }
+      .language button { padding-inline: 6px; }
+      h1 { font-size: 55px; }
+      .btn { width: 100%; }
+      .button-row { width: 100%; }
+      .hero-index { align-items: flex-start; flex-direction: column; gap: 10px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .js .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar" id="top">
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="Farhad Almabekov — home"><span class="brand-symbol">FA.</span><span>FARHAD ALMABEKOV</span></a>
+      <div class="nav-right">
+        <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+          <a href="#about" data-i18n="navAbout">About</a>
+          <a href="#work" data-i18n="navWork">Projects</a>
+          <a href="#journey" data-i18n="navJourney">Journey</a>
+          <a href="#contact" data-i18n="navContact">Contact ↗</a>
+        </nav>
+        <div class="language" aria-label="Choose language">
+          <button type="button" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" data-lang="ru" aria-pressed="false">RU</button>
+        </div>
+        <button type="button" class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="hero-kicker eyebrow"><span class="availability-dot"></span><span data-i18n="heroKicker">IT STUDENT · WEB & CYBERSECURITY</span><span>— ATYRAU, KZ</span></p>
+            <h1 id="heroTitle"><span data-i18n="heroLine1">BUILDING</span><br><span class="serif" data-i18n="heroLine2">digital</span><br><span class="last-line" data-i18n="heroLine3">THAT WORKS.</span></h1>
+            <div class="hero-bottom">
+              <p class="hero-intro" data-i18n="heroIntro">I’m Farhad — an IT student who learns by building. I turn ideas into usable websites, practical tools, and cybersecurity learning experiences.</p>
+            </div>
+            <div class="button-row">
+              <a class="btn btn-dark" href="#work"><span data-i18n="heroCtaWork">Explore my work</span><span aria-hidden="true">↘</span></a>
+              <a class="btn btn-line" href="#contact"><span data-i18n="heroCtaContact">Get in touch</span><span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+          <div class="hero-visual reveal">
+            <div class="portrait-accent" aria-hidden="true"></div>
+            <div class="portrait-frame">
+              <img src="FC0875F9-9329-45E4-808F-63B0E3EA44F3.PNG" alt="Portrait of Farhad Almabekov wearing a black suit and white shirt" fetchpriority="high">
+              <div class="portrait-tag" data-i18n="portraitTag">OPEN TO OPPORTUNITIES</div>
+              <div class="portrait-caption"><div><strong>Farhad Almabekov</strong><small data-i18n="portraitRole">IT student · aspiring developer</small></div><span class="year-stamp">2026 / KZ</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-index eyebrow"><span><strong>01</strong> / <span data-i18n="heroIndex1">A practical mindset</span></span><span data-i18n="heroIndex2">Web · IT · Cybersecurity</span><span class="index-arrow" aria-hidden="true">↘</span></div>
+      </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true"><div class="marquee-track">
+      <span>BUILD WITH PURPOSE <b>✳</b></span><span>LEARN BY DOING <b>✳</b></span><span>MAKE IT USEFUL <b>✳</b></span><span>STAY CURIOUS <b>✳</b></span><span>BUILD WITH PURPOSE <b>✳</b></span><span>LEARN BY DOING <b>✳</b></span><span>MAKE IT USEFUL <b>✳</b></span><span>STAY CURIOUS <b>✳</b></span>
+    </div></div>
+
+    <section class="content-section" id="about">
+      <div class="wrap">
+        <div class="section-top reveal">
+          <div><span class="section-number eyebrow">01 / <span data-i18n="aboutLabel">THE PERSON</span></span><h2 data-i18n="aboutTitle">A little about<br><span class="serif">how I think.</span></h2></div>
+          <p class="section-note" data-i18n="aboutNote">A quick introduction to the person behind the projects — what I’m learning, what I care about, and how I approach a problem.</p>
+        </div>
+        <div class="about-layout reveal">
+          <p class="about-statement" data-i18n="aboutStatement">I like the space where <em>curiosity becomes something useful.</em> I break big ideas into small steps, test them, and keep improving until they work for real people.</p>
+          <div class="about-copy">
+            <p data-i18n="aboutP1">I’m a fourth-year student at Higher College APEC Petrotechnic in Atyrau, Kazakhstan, studying Information Systems Technician. Alongside college, I’ve gained internship experience at TCO and KTR and keep learning through hands-on work.</p>
+            <p data-i18n="aboutP2">My projects span web interfaces, IT support utilities, network diagnostics, and cybersecurity awareness. I enjoy learning the reasoning behind a system just as much as building the visible parts of it.</p>
+            <div class="info-grid">
+              <div class="info-cell"><span data-i18n="metaLocation">Location</span><strong>Atyrau, Kazakhstan</strong></div>
+              <div class="info-cell"><span data-i18n="metaStatus">Current status</span><strong data-i18n="metaStatusValue">Open to IT opportunities</strong></div>
+              <div class="info-cell"><span data-i18n="metaFocus">Main interests</span><strong data-i18n="metaFocusValue">Web · IT · Security</strong></div>
+              <div class="info-cell"><span data-i18n="metaApproach">My approach</span><strong data-i18n="metaApproachValue">Build / test / refine</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="work">
+      <div class="wrap">
+        <div class="section-top reveal">
+          <div><span class="section-number eyebrow">02 / <span data-i18n="workLabel">SELECTED WORK</span></span><h2 data-i18n="workTitle">Projects with<br><span class="serif">a purpose.</span></h2></div>
+          <div>
+            <p class="section-note" data-i18n="workNote">A mix of deployed websites, interactive cybersecurity concepts, and hands-on IT labs. Demo and local projects are labelled clearly.</p>
+            <div class="work-head-meta"><span data-i18n="workMeta">Personal & learning projects</span><strong id="projectCount">13</strong></div>
+          </div>
+        </div>
+        <div class="filters reveal" role="group" aria-label="Filter projects">
+          <button class="filter-btn" type="button" data-filter="all" aria-pressed="true" data-i18n="filterAll">All projects / 13</button>
+          <button class="filter-btn" type="button" data-filter="web" aria-pressed="false" data-i18n="filterWeb">Web</button>
+          <button class="filter-btn" type="button" data-filter="security" aria-pressed="false" data-i18n="filterSecurity">Security</button>
+          <button class="filter-btn" type="button" data-filter="labs" aria-pressed="false" data-i18n="filterLabs">IT labs</button>
+        </div>
+        <div class="project-grid" id="projectGrid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="content-section" id="skills">
+      <div class="wrap">
+        <div class="section-top reveal">
+          <div><span class="section-number eyebrow">03 / <span data-i18n="skillsLabel">THE TOOLBOX</span></span><h2 data-i18n="skillsTitle">Skills in<br><span class="serif">progress.</span></h2></div>
+          <p class="section-note" data-i18n="skillsNote">A practical snapshot, not inflated percentages. I focus on what I can explain, demonstrate, and keep improving.</p>
+        </div>
+        <div class="skills-layout reveal">
+          <div class="skills-aside"><span class="eyebrow muted" data-i18n="skillsAsideLabel">SHOW, DON'T JUST TELL</span><p data-i18n="skillsAside">I prefer to show what I can do through working examples. Skills marked as learning are areas I’m actively strengthening.</p><p class="skills-footnote" data-i18n="skillsFootnote">This list should stay honest and grow alongside real projects.</p></div>
+          <div class="skill-groups">
+            <div class="skill-group"><h3 data-i18n="skillWeb">WEB BASICS</h3><div class="skill-tags"><span class="skill-tag">HTML</span><span class="skill-tag">CSS</span><span class="skill-tag">JavaScript</span><span class="skill-tag learning" data-i18n="learningResponsive">Responsive UI</span></div></div>
+            <div class="skill-group"><h3 data-i18n="skillDev">DEVELOPMENT</h3><div class="skill-tags"><span class="skill-tag">React <small>(CyberShield)</small></span><span class="skill-tag learning">State & local storage</span><span class="skill-tag learning">Accessibility</span></div></div>
+            <div class="skill-group"><h3 data-i18n="skillTools">TOOLS & SYSTEMS</h3><div class="skill-tags"><span class="skill-tag">Git / GitHub</span><span class="skill-tag">PowerShell</span><span class="skill-tag learning">Windows Server / AD</span><span class="skill-tag learning">Networking</span></div></div>
+            <div class="skill-group"><h3 data-i18n="skillExplore">EXPLORING</h3><div class="skill-tags"><span class="skill-tag learning">Python</span><span class="skill-tag learning" data-i18n="learningSecurity">Security fundamentals</span><span class="skill-tag learning" data-i18n="learningWriting">Technical writing</span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="journey">
+      <div class="wrap">
+        <div class="section-top reveal">
+          <div><span class="section-number eyebrow">04 / <span data-i18n="journeyLabel">THE JOURNEY</span></span><h2 data-i18n="journeyTitle">Learning by<br><span class="serif">doing.</span></h2></div>
+          <p class="section-note" data-i18n="journeyNote">My education, internship experience, and project work — a foundation I’m continuing to build on.</p>
+        </div>
+        <div class="journey">
+          <article class="journey-item reveal"><div class="journey-date" data-i18n="educationDate">2023 — NOW</div><div><h3 data-i18n="educationTitle">Higher College APEC Petrotechnic</h3><p data-i18n="educationDesc">Fourth-year student in the Information Systems Technician programme, combining college studies with practical software, web, and IT projects.</p></div><div class="journey-mark" aria-hidden="true">↗</div></article>
+          <article class="journey-item reveal"><div class="journey-date" data-i18n="internship">INTERNSHIP</div><div><h3>TCO</h3><p data-i18n="tcoDesc">Completed an internship at TCO in Atyrau, gaining experience in a professional industry environment.</p></div><div class="journey-mark" aria-hidden="true">↗</div></article>
+          <article class="journey-item reveal"><div class="journey-date" data-i18n="internship">INTERNSHIP</div><div><h3>KTR</h3><p data-i18n="ktrDesc">Completed an internship at KTR in Atyrau as part of my professional learning path.</p></div><div class="journey-mark" aria-hidden="true">↗</div></article>
+          <article class="journey-item reveal"><div class="journey-date">2026</div><div><h3>CyberShield</h3><p data-i18n="cyberJourneyDesc">Developing a bilingual phishing-awareness concept with simulated training scenarios and a demo management dashboard.</p></div><div class="journey-mark" aria-hidden="true">✳</div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="statement-band" aria-label="Personal approach">
+      <div class="wrap statement-inner reveal">
+        <div class="statement-mark" aria-hidden="true">“</div>
+        <div><p class="statement-text" data-i18n="statementText">Good technology should make complicated things feel <em>a little more human.</em></p><p class="statement-byline" data-i18n="statementByline">A principle I bring to every project</p></div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="wrap">
+        <div class="reveal">
+          <span class="section-number eyebrow">05 / <span data-i18n="contactLabel">SAY HELLO</span></span>
+          <h2 data-i18n="contactTitle">Have a good<br>idea? <span class="serif">Let’s build.</span></h2>
+          <p class="contact-note" data-i18n="contactNote">I’m open to IT internships, junior opportunities, collaborative projects, and conversations with people who like solving problems.</p>
+        </div>
+        <div class="contact-line reveal">
+          <div><div class="contact-line-label" data-i18n="githubLabel">FIND ME ON GITHUB</div><a class="github-link" href="https://github.com/farkhadh7" target="_blank" rel="noopener noreferrer"><span>github.com/farkhadh7</span><span aria-hidden="true">↗</span></a></div>
+          <div class="contact-actions">
+            <a class="contact-chip" href="https://github.com/farkhadh7" target="_blank" rel="noopener noreferrer">GITHUB <span aria-hidden="true">↗</span></a>
+            <a class="contact-chip" href="https://farkhadh7.github.io/Phishing-Inbox-/" target="_blank" rel="noopener noreferrer" data-i18n="simulatorLink">PHISHING SIMULATOR ↗</a>
+            <a class="contact-chip" href="https://cyber-shield-training-platform--almabekovfarkha.replit.app/" target="_blank" rel="noopener noreferrer">CYBERSHIELD ↗</a>
+            <button class="contact-chip" type="button" id="copyProfile" data-i18n="copyProfile">COPY GITHUB LINK</button>
+          </div>
+        </div>
+        <footer class="footer"><span>© <span id="year">2026</span> FARHAD ALMABEKOV</span><span data-i18n="footerNote">MADE WITH CURIOSITY IN ATYRAU</span><a href="#top" data-i18n="backTop">BACK TO TOP ↑</a></footer>
+      </div>
+    </section>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const PROFILE_URL = 'https://github.com/farkhadh7';
+
+    const projects = [
+      {id:'01', name:'CyberShield', category:['security','web'], visual:'cyber', cover:'CYBER', subtitle:'SHIELD / 001', tags:['Cybersecurity','EdTech','RU / KZ'], status:'Demo MVP · mock data', statusRu:'Демо-MVP · тестовые данные', desc:'A bilingual phishing-awareness platform concept with an interactive inbox and a demo manager dashboard.', descRu:'Концепция двуязычной платформы по распознаванию фишинга с интерактивным почтовым ящиком и демонстрационной панелью руководителя.', url:'https://cyber-shield-training-platform--almabekovfarkha.replit.app/', action:'Open demo', actionRu:'Открыть демо'},
+      {id:'02', name:'Phishing Inbox Simulator', category:['security'], visual:'phishing', cover:'INBOX', subtitle:'THREAT REVIEW / 002', tags:['Security awareness','Training game'], status:'Live demo · training game', statusRu:'Рабочее демо · тренажёр', desc:'A training game created for TCO. Inspect simulated emails and practise spotting common phishing red flags.', descRu:'Учебная игра для TCO: анализ смоделированных писем и практика распознавания распространённых признаков фишинга.', url:'https://farkhadh7.github.io/Phishing-Inbox-/', action:'Play simulator', actionRu:'Запустить тренажёр'},
+      {id:'03', name:'ArtLens Gallery', category:['web'], visual:'gallery', cover:'ARTLENS', subtitle:'ART / WEB / 003', tags:['Web design','Gallery','E-commerce concept'], status:'Live web project', statusRu:'Рабочий веб-проект', desc:'An online art gallery concept for exploring artists, artworks, and exhibitions through a visual storefront.', descRu:'Концепция онлайн-галереи для просмотра художников, произведений и выставок через визуальную витрину.', url:'https://gallery451.netlify.app/', action:'Visit website', actionRu:'Открыть сайт'},
+      {id:'04', name:'LAS — Web Project', category:['web'], visual:'las', cover:'LAS', subtitle:'BUILD / PUBLISH / 004', tags:['Web project','Deployment'], status:'Published site', statusRu:'Опубликованный сайт', desc:'An independently published website and an example of taking a web project from build to deployment.', descRu:'Самостоятельно опубликованный веб-проект — пример полного цикла от разработки до размещения сайта.', url:'https://las.great-site.net/?i=1', action:'Visit website', actionRu:'Открыть сайт'},
+      {id:'05', name:'IT Support Toolkit', category:['labs'], visual:'support', cover:'IT / SUPPORT', subtitle:'SYSTEM CHECK / 005', tags:['PowerShell','Windows','IT support'], status:'Local lab', statusRu:'Локальная лаборатория', desc:'A PowerShell toolkit for Windows health checks, connectivity tests, and Event Log error reports.', descRu:'Набор PowerShell-скриптов для проверки Windows, тестирования соединения и формирования отчётов из Event Log.', url:null},
+      {id:'06', name:'Corporate IT Lab', category:['labs','security'], visual:'ad', cover:'AD / GPO', subtitle:'DOMAIN LAB / 006', tags:['Active Directory','Windows Server'], status:'Lab blueprint', statusRu:'План лаборатории', desc:'A practice lab for organizational units, security groups, sample users, and access-control basics.', descRu:'Практическая лаборатория Active Directory: организационные подразделения, группы безопасности, пользователи и права доступа.', url:null},
+      {id:'07', name:'Windows Log Analyzer', category:['labs','security'], visual:'logs', cover:'LOGS', subtitle:'EVENT REVIEW / 007', tags:['Python','Event logs','JSON / CSV'], status:'Sample data included', statusRu:'Есть тестовые данные', desc:'A Python utility that analyses sample Windows events, flags patterns worth reviewing, and exports JSON or CSV reports.', descRu:'Утилита на Python для анализа примеров событий Windows, выявления подозрительных шаблонов и экспорта JSON/CSV-отчётов.', url:null},
+      {id:'08', name:'DeskOps Help Desk', category:['web','labs'], visual:'helpdesk', cover:'DESKOPS', subtitle:'SERVICE DESK / 008', tags:['HTML / CSS / JS','ITSM','Workflow'], status:'Browser demo concept', statusRu:'Концепт демо в браузере', desc:'A ticket board concept with priorities, status changes, search, and browser-based persistence for demo tickets.', descRu:'Концепция доски IT-заявок с приоритетами, сменой статусов, поиском и хранением демонстрационных заявок в браузере.', url:null},
+      {id:'09', name:'Network Troubleshooting Lab', category:['labs'], visual:'network', cover:'10.0.0.0/24', subtitle:'NETWORK MAP / 009', tags:['TCP / IP','Subnetting','DNS'], status:'Local lab', statusRu:'Локальная лаборатория', desc:'An IPv4 subnet calculator, sample IP plan, and scenarios for diagnosing common office-network problems.', descRu:'Калькулятор IPv4-подсетей, пример IP-плана и сценарии диагностики типичных проблем офисной сети.', url:null},
+      {id:'10', name:'Mini SIEM', category:['labs','security'], visual:'siem', cover:'SIGNAL!', subtitle:'DETECTION ENGINE / 010', tags:['Python','Detection rules','SOC basics'], status:'Sample data included', statusRu:'Есть тестовые данные', desc:'A small event-correlation engine that flags repeated failed logins and suspicious patterns in synthetic events.', descRu:'Небольшой движок корреляции событий, выявляющий повторные неудачные входы и подозрительные шаблоны.', url:null},
+      {id:'11', name:'PC Asset Inventory', category:['web','labs'], visual:'assets', cover:'IT / ASSETS', subtitle:'ASSET REGISTER / 011', tags:['HTML / CSS / JS','Inventory','CSV export'], status:'Browser demo concept', statusRu:'Концепт демо в браузере', desc:'A browser-based equipment register for devices, assigned users, departments, asset state, and CSV export.', descRu:'Реестр оборудования в браузере: устройства, ответственные пользователи, отделы, состояние и экспорт CSV.', url:null},
+      {id:'12', name:'Backup & Recovery Lab', category:['labs','security'], visual:'backup', cover:'SHA-256', subtitle:'RECOVERY CHECK / 012', tags:['PowerShell','Hashing','Recovery'], status:'Local lab', statusRu:'Локальная лаборатория', desc:'PowerShell scripts to back up files, validate SHA-256 hashes, and restore verified copies into a separate folder.', descRu:'PowerShell-скрипты для резервного копирования, проверки SHA-256 и восстановления проверенных копий в отдельную папку.', url:null},
+      {id:'13', name:'NodeWatch Server Monitor', category:['labs','web'], visual:'monitor', cover:'NODEWATCH', subtitle:'LIVE METRICS / 013', tags:['Python','HTTP API','Monitoring'], status:'Local service', statusRu:'Локальный сервис', desc:'A local Python dashboard and metrics API for CPU, memory, disk space, uptime, and network counters.', descRu:'Локальная панель на Python и API метрик процессора, памяти, места на диске, времени работы и сети.', url:null}
+    ];
+
+    const translations = {
+      en: {
+        navAbout:'About', navWork:'Projects', navJourney:'Journey', navContact:'Contact ↗', heroKicker:'IT STUDENT · WEB & CYBERSECURITY', heroLine1:'BUILDING', heroLine2:'digital', heroLine3:'THAT WORKS.', heroIntro:'I’m Farhad — an IT student who learns by building. I turn ideas into usable websites, practical tools, and cybersecurity learning experiences.', heroCtaWork:'Explore my work', heroCtaContact:'Get in touch', portraitTag:'OPEN TO OPPORTUNITIES', portraitRole:'IT student · aspiring developer', heroIndex1:'A practical mindset', heroIndex2:'Web · IT · Cybersecurity', aboutLabel:'THE PERSON', aboutTitle:'A little about<br><span class="serif">how I think.</span>', aboutNote:'A quick introduction to the person behind the projects — what I’m learning, what I care about, and how I approach a problem.', aboutStatement:'I like the space where <em>curiosity becomes something useful.</em> I break big ideas into small steps, test them, and keep improving until they work for real people.', aboutP1:'I’m a fourth-year student at Higher College APEC Petrotechnic in Atyrau, Kazakhstan, studying Information Systems Technician. Alongside college, I’ve gained internship experience at TCO and KTR and keep learning through hands-on work.', aboutP2:'My projects span web interfaces, IT support utilities, network diagnostics, and cybersecurity awareness. I enjoy learning the reasoning behind a system just as much as building the visible parts of it.', metaLocation:'Location', metaStatus:'Current status', metaStatusValue:'Open to IT opportunities', metaFocus:'Main interests', metaFocusValue:'Web · IT · Security', metaApproach:'My approach', metaApproachValue:'Build / test / refine', workLabel:'SELECTED WORK', workTitle:'Projects with<br><span class="serif">a purpose.</span>', workNote:'A mix of deployed websites, interactive cybersecurity concepts, and hands-on IT labs. Demo and local projects are labelled clearly.', workMeta:'Personal & learning projects', filterAll:'All projects / 13', filterWeb:'Web', filterSecurity:'Security', filterLabs:'IT labs', projectOpen:'Open project', projectUnavailable:'LOCAL / LEARNING PROJECT', skillsLabel:'THE TOOLBOX', skillsTitle:'Skills in<br><span class="serif">progress.</span>', skillsNote:'A practical snapshot, not inflated percentages. I focus on what I can explain, demonstrate, and keep improving.', skillsAsideLabel:'SHOW, DON’T JUST TELL', skillsAside:'I prefer to show what I can do through working examples. Skills marked as learning are areas I’m actively strengthening.', skillsFootnote:'This list should stay honest and grow alongside real projects.', skillWeb:'WEB BASICS', skillDev:'DEVELOPMENT', skillTools:'TOOLS & SYSTEMS', skillExplore:'EXPLORING', learningResponsive:'Responsive UI', learningSecurity:'Security fundamentals', learningWriting:'Technical writing', journeyLabel:'THE JOURNEY', journeyTitle:'Learning by<br><span class="serif">doing.</span>', journeyNote:'My education, internship experience, and project work — a foundation I’m continuing to build on.', educationDate:'2023 — NOW', educationTitle:'Higher College APEC Petrotechnic', educationDesc:'Fourth-year student in the Information Systems Technician programme, combining college studies with practical software, web, and IT projects.', internship:'INTERNSHIP', tcoDesc:'Completed an internship at TCO in Atyrau, gaining experience in a professional industry environment.', ktrDesc:'Completed an internship at KTR in Atyrau as part of my professional learning path.', cyberJourneyDesc:'Developing a bilingual phishing-awareness concept with simulated training scenarios and a demo management dashboard.', statementText:'Good technology should make complicated things feel <em>a little more human.</em>', statementByline:'A principle I bring to every project', contactLabel:'SAY HELLO', contactTitle:'Have a good<br>idea? <span class="serif">Let’s build.</span>', contactNote:'I’m open to IT internships, junior opportunities, collaborative projects, and conversations with people who like solving problems.', githubLabel:'FIND ME ON GITHUB', simulatorLink:'PHISHING SIMULATOR ↗', copyProfile:'COPY GITHUB LINK', footerNote:'MADE WITH CURIOSITY IN ATYRAU', backTop:'BACK TO TOP ↑', copied:'GitHub profile link copied.', copyFallback:'Copy unavailable here — use the GitHub link.'
+      },
+      ru: {
+        navAbout:'Обо мне', navWork:'Проекты', navJourney:'Путь', navContact:'Контакты ↗', heroKicker:'IT-СТУДЕНТ · ВЕБ И КИБЕРБЕЗОПАСНОСТЬ', heroLine1:'СОЗДАЮ', heroLine2:'цифровое', heroLine3:'С ПОЛЬЗОЙ.', heroIntro:'Я Фархад — студент IT-направления, который учится через практику. Превращаю идеи в удобные сайты, полезные инструменты и учебные проекты по кибербезопасности.', heroCtaWork:'Смотреть проекты', heroCtaContact:'Связаться', portraitTag:'ОТКРЫТ К ВОЗМОЖНОСТЯМ', portraitRole:'IT-студент · начинающий разработчик', heroIndex1:'Практический подход', heroIndex2:'Веб · IT · Кибербезопасность', aboutLabel:'ОБО МНЕ', aboutTitle:'Немного о том,<br><span class="serif">как я думаю.</span>', aboutNote:'Коротко о человеке за проектами: чему я учусь, что для меня важно и как я подхожу к задачам.', aboutStatement:'Мне нравится момент, когда <em>любопытство превращается в пользу.</em> Я разбиваю большие идеи на небольшие шаги, тестирую их и улучшаю до рабочего результата.', aboutP1:'Я учусь на 4-м курсе Higher College APEC Petrotechnic в Атырау по специальности Information Systems Technician. Параллельно с учёбой получил опыт стажировок в TCO и KTR и продолжаю развиваться через практические проекты.', aboutP2:'Мои проекты охватывают веб-интерфейсы, инструменты IT-поддержки, диагностику сетей и обучение кибербезопасности. Мне интересно не только создавать интерфейс, но и понимать логику системы.', metaLocation:'Город', metaStatus:'Статус', metaStatusValue:'Открыт к IT-возможностям', metaFocus:'Интересы', metaFocusValue:'Веб · IT · Безопасность', metaApproach:'Мой подход', metaApproachValue:'Создать / проверить / улучшить', workLabel:'ИЗБРАННЫЕ РАБОТЫ', workTitle:'Проекты<br><span class="serif">с идеей.</span>', workNote:'Опубликованные сайты, интерактивные концепции по кибербезопасности и практические IT-лаборатории. Статус демо и локальных проектов указан отдельно.', workMeta:'Личные и учебные проекты', filterAll:'Все проекты / 13', filterWeb:'Веб', filterSecurity:'Безопасность', filterLabs:'IT-лабы', projectOpen:'Открыть проект', projectUnavailable:'ЛОКАЛЬНЫЙ / УЧЕБНЫЙ ПРОЕКТ', skillsLabel:'ИНСТРУМЕНТЫ', skillsTitle:'Навыки<br><span class="serif">в развитии.</span>', skillsNote:'Практический обзор без завышенных процентов. Фокусируюсь на том, что могу объяснить, показать и улучшать.', skillsAsideLabel:'ПОКАЗЫВАТЬ НА ДЕЛЕ', skillsAside:'Предпочитаю демонстрировать навыки на работающих примерах. Навыки с пометкой «изучаю» — направления, которые активно развиваю.', skillsFootnote:'Список должен оставаться честным и расти вместе с реальными проектами.', skillWeb:'ОСНОВЫ ВЕБА', skillDev:'РАЗРАБОТКА', skillTools:'ИНСТРУМЕНТЫ И СИСТЕМЫ', skillExplore:'ИЗУЧАЮ', learningResponsive:'Адаптивные интерфейсы', learningSecurity:'Основы безопасности', learningWriting:'Техническая документация', journeyLabel:'МОЙ ПУТЬ', journeyTitle:'Учусь через<br><span class="serif">практику.</span>', journeyNote:'Образование, опыт стажировок и практические проекты — фундамент, который я продолжаю развивать.', educationDate:'2023 — СЕЙЧАС', educationTitle:'Higher College APEC Petrotechnic', educationDesc:'Студент 4-го курса специальности Information Systems Technician. Совмещаю обучение с практикой в программных, веб- и IT-проектах.', internship:'СТАЖИРОВКА', tcoDesc:'Прошёл стажировку в TCO в Атырау и получил опыт работы в профессиональной производственной среде.', ktrDesc:'Прошёл стажировку в KTR в Атырау в рамках профессионального обучения.', cyberJourneyDesc:'Разрабатываю двуязычную концепцию тренажёра по распознаванию фишинга с учебными сценариями и демонстрационной панелью управления.', statementText:'Хорошие технологии должны делать сложные вещи <em>чуть человечнее.</em>', statementByline:'Принцип, который я привношу в каждый проект', contactLabel:'НА СВЯЗИ', contactTitle:'Есть хорошая<br>идея? <span class="serif">Создадим.</span>', contactNote:'Открыт к IT-стажировкам, junior-вакансиям, совместным проектам и общению с людьми, которым нравится решать задачи.', githubLabel:'МОЙ GITHUB', simulatorLink:'ТРЕНАЖЁР ФИШИНГА ↗', copyProfile:'СКОПИРОВАТЬ GITHUB', footerNote:'СОЗДАНО С ЛЮБОПЫТСТВОМ В АТЫРАУ', backTop:'НАВЕРХ ↑', copied:'Ссылка на GitHub скопирована.', copyFallback:'Не удалось скопировать — воспользуйтесь ссылкой на GitHub.'
+      }
+    };
+
+    let currentLanguage = 'en';
+    const languageButtons = document.querySelectorAll('[data-lang]');
+    const filterButtons = document.querySelectorAll('[data-filter]');
+    const projectGrid = document.getElementById('projectGrid');
+    const toast = document.getElementById('toast');
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    function projectCard(project) {
+      const ru = currentLanguage === 'ru';
+      const projectTitle = project.name;
+      const description = ru ? project.descRu : project.desc;
+      const status = ru ? project.statusRu : project.status;
+      const linkText = project.url ? (ru ? project.actionRu : project.action) : translations[currentLanguage].projectUnavailable;
+      const tagMarkup = project.tags.map(tag => `<span class="project-tag">${tag}</span>`).join('');
+      const actionMarkup = project.url
+        ? `<a class="project-action" href="${project.url}" target="_blank" rel="noopener noreferrer"><span>${linkText}</span><span class="arrow" aria-hidden="true">↗</span></a>`
+        : `<div class="project-action unavailable"><span>${linkText}</span><span class="arrow" aria-hidden="true">↗</span></div>`;
+      const coverMarkup = `<div class="project-cover cover-${project.visual}"><div class="cover-kicker"><span>${project.subtitle}</span><span>${project.id} / 13</span></div><div class="cover-word">${project.cover.replace('ARTLENS','ART<em>lens</em>').replace('CYBER','CYBER').replace('IT / SUPPORT','IT /<br>SUPPORT').replace('AD / GPO','AD /<br>GPO').replace('IT / ASSETS','IT /<br>ASSETS').replace('10.0.0.0/24','10.0.0.0<em>/24</em>')}</div><span class="cover-icon" aria-hidden="true">${project.url ? '↗' : '＋'}</span>${['support','ad','logs','network','siem','assets','backup','monitor'].includes(project.visual) ? '<span class="cover-window" aria-hidden="true"></span>' : ''}</div>`;
+      return `<article class="project-card reveal" data-category="${project.category.join(' ')}">${coverMarkup}<div class="project-meta"><span>${project.id} — ${ru ? 'ПРОЕКТ' : 'PROJECT'}</span><span class="project-state ${project.url ? '' : 'lab'}">${status}</span></div><h3 class="project-title">${projectTitle}</h3><p class="project-desc">${description}</p><div class="project-tags">${tagMarkup}</div>${actionMarkup}</article>`;
+    }
+
+    function renderProjects(filter = document.querySelector('[data-filter][aria-pressed="true"]')?.dataset.filter || 'all') {
+      const filtered = projects.filter(project => filter === 'all' || project.category.includes(filter));
+      projectGrid.innerHTML = filtered.map(projectCard).join('');
+      document.getElementById('projectCount').textContent = String(filtered.length).padStart(2, '0');
+      const allBtn = document.querySelector('[data-filter="all"]');
+      allBtn.textContent = `${translations[currentLanguage].filterAll.split(' / ')[0]} / ${projects.length}`;
+      observeReveals(projectGrid.querySelectorAll('.reveal'));
+    }
+
+    function setLanguage(lang) {
+      if (!translations[lang]) return;
+      currentLanguage = lang;
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (translations[lang][key] !== undefined) el.innerHTML = translations[lang][key];
+      });
+      languageButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.lang === lang)));
+      document.title = lang === 'ru' ? 'Фархад Алмабеков — IT-портфолио' : 'Farhad Almabekov — IT Portfolio';
+      menuToggle.setAttribute('aria-label', lang === 'ru' ? 'Открыть меню' : 'Open menu');
+      renderProjects();
+    }
+
+    filterButtons.forEach(button => button.addEventListener('click', () => {
+      filterButtons.forEach(other => other.setAttribute('aria-pressed', String(other === button)));
+      renderProjects(button.dataset.filter);
+    }));
+    languageButtons.forEach(button => button.addEventListener('click', () => setLanguage(button.dataset.lang)));
+
+    menuToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(open));
+      menuToggle.textContent = open ? '×' : '☰';
+    });
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.textContent = '☰';
+    }));
+
+    function observeReveals(items = document.querySelectorAll('.reveal')) {
+      if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        items.forEach(item => item.classList.add('visible'));
+        return;
+      }
+      const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+      }), {threshold: 0.08});
+      items.forEach(item => { if (!item.classList.contains('visible')) observer.observe(item); });
+    }
+
+    document.getElementById('copyProfile').addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(PROFILE_URL);
+        toast.textContent = translations[currentLanguage].copied;
+      } catch (error) {
+        toast.textContent = translations[currentLanguage].copyFallback;
+      }
+      toast.classList.add('show');
+      window.setTimeout(() => toast.classList.remove('show'), 2600);
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+    renderProjects('all');
+    observeReveals(document.querySelectorAll('.reveal:not(.project-card)'));
+  </script>
+</body>
+</html>
